@@ -6,10 +6,18 @@
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.0"
   },
+  "devDependencies": {
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom --collectCoverageFrom=src/**.{js,jsx}",
+    "coverage": "npm run test -- --coverage; open file:///$PWD/coverage/lcov-report/index.html",
     "eject": "react-scripts eject"
   }
 }
