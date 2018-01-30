@@ -23,6 +23,7 @@
       "error",
       "never"
     ],
+    "react/prefer-stateless-function": "off",
     "import/no-named-as-default-member": "off",
     "no-prototype-builtins": "off",
     "no-console": "off",
