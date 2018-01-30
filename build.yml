@@ -1,0 +1,30 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: node
+    tag: '8-alpine'
+
+inputs:
+  - name: demo-react-repo
+outputs:
+  - name: build
+caches:
+  - path: demo-react-repo/node_modules
+
+run:
+  path: sh
+  args:
+  - -exc
+  - |
+    cd demo-react-repo
+    yarn install --no-progress
+    yarn build
+    cp ${MANIFEST%.yml}.yml ./build
+    cp Staticfile build/Staticfile
+    cp -r build ../
+
+
+# ${MANIFEST%.yml} specifically '%.yml' is a optional trim the end of a string (optional suffix string trim)
